@@ -1,18 +1,7 @@
 from django.contrib import admin
 from .models import *
 from django.forms.widgets import TextInput
-
-class TextField2TextInput(admin.ModelAdmin):
-    # I like to use TextFields to avoid restricting character counts, but I like TextInput widget
-    formfield_overrides = {
-        models.TextField: {'widget': TextInput},
-    }
-
-class TextField2TextInputInline(admin.TabularInline):
-    # I like to use TextFields to avoid restricting character counts, but I like TextInput widget
-    formfield_overrides = {
-        models.TextField: {'widget': TextInput},
-    }
+from Shikari.admin import TextField2TextInput, TextField2TextInputInline
 
 class OrganizationWebsiteInline(TextField2TextInputInline):
     model = OrganizationWebsite
